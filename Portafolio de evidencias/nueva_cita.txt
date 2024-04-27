@@ -1,0 +1,16 @@
+2/03/24, 10:00, stey, no
+12/12/12, 12:00, stey, no
+2222, 222, 222, 222
+121212, 12, 12, si
+01/01/25, 12:12, stey, no
+121212, 1212, stey, Activada
+121212, 1212, sre, Activada
+121212, 1212, stey, Activada
+121212, 1212, stey, Activada
+121212, 1212, stey, Activada
+121212, 1212, stey, Activada, Sofía Tames
+121212, 1212, stey, Activada, 109858663, Juan, Romero
+121212, 1212, stey, Activada, 109858663, Juan, Romero
+121212, 1212, stey, 30652745, Sofía, Tames, Activada
+s, 12, 12, 109858663, Juan, Romero, Activada
+121212, 1212, stey, 12121212, 109858663, Juan, Romero, Activada

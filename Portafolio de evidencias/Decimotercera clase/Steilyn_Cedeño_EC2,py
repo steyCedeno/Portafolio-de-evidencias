@@ -1,0 +1,58 @@
+def horario(cedulas, cedula):
+    if cedula in cedulas:
+        with open("horario.txt", "w") as file:
+            file.write("Horario de citas activado por médico jefe: {}\n".format(cedula))
+        return "Horario de citas activado correctamente."
+    else:
+        return "Cédula de médico no autorizada."
+
+def info(citas):
+    print("Citas existentes:")
+    for cita in citas:
+        fecha, hora, paciente, cedula_paciente, cedula_medico, nombre_medico, apellido_medico, estado = cita
+        print("Fecha: {}, Hora: {}, Paciente: {}, Cédula: {}, Médico: {} {}, Estado: {}".format(fecha, hora, paciente, cedula_paciente, nombre_medico, apellido_medico, estado))
+
+def cita_nueva(citas, fecha, hora, paciente, cedula_paciente, cedula_medico, nombre_medico, apellido_medico):
+    nueva_cita = [fecha, hora, paciente, cedula_paciente, cedula_medico, nombre_medico, apellido_medico, "Activada"]
+    with open("nueva_cita.txt", "a") as file:
+        file.write("{}, {}, {}, {}, {}, {}, {}, {}\n".format(*nueva_cita))
+    citas.append(nueva_cita)
+    horario(medicos_jefes, cedula_medico)
+    return "Nueva cita agregada correctamente."
+
+medicos_jefes = [["109858663", "Juan", "Romero"], ["30652745", "Sofía", "Tames"]]
+citas = [["01/04/2024", "10:00", "Juan Pérez", "121212", "109858663", "Juan", "Romero", "Activada"], ["01/04/2024", "11:00", "María Gómez", "1212", "30652745", "Sofía", "Tames", "No activada"]]
+
+while True:
+    print("Seleccione una opción:")
+    print("1. Mostrar información de citas")
+    print("2. Agregar cita nueva")
+    print("3. Salir")
+
+    opcion = input("Ingrese el número de la opción: ")
+
+    if opcion == '1':
+        info(citas)
+    elif opcion == '2':
+        fecha = input("Ingrese la fecha de la nueva cita (DD/MM/AAAA): ")
+        hora = input("Ingrese la hora de la nueva cita (HH:MM): ")
+        paciente = input("Ingrese el nombre del paciente: ")
+        cedula_paciente = input("Ingrese la cédula del paciente: ")
+        cedula_medico = input("Ingrese la cédula del médico jefe: ")
+        nombre_medico = input("Ingrese el nombre del médico: ")
+        apellido_medico = input("Ingrese el apellido del médico: ")
+        medico_valido = False
+        for medico in medicos_jefes:
+            if cedula_medico == medico[0] and nombre_medico == medico[1] and apellido_medico == medico[2]:
+                medico_valido = True
+                break
+        if medico_valido:
+            print(cita_nueva(citas, fecha, hora, paciente, cedula_paciente, cedula_medico, nombre_medico, apellido_medico))
+            print("La cita se ha guardado con éxito.")
+        else:
+            print("Los datos del médico no son válidos. La cita no se puede agregar.")
+    elif opcion == '3':
+        print("Fin del programa")
+        break
+    else:
+        print("Opción no válida. Por favor, ingrese un número válido.")

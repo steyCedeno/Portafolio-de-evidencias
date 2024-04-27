@@ -1,0 +1,4 @@
+Información de citas médicas:
+01/04/2024, 10:00, Juan Pérez, Activada, 109858663, Juan, Romero
+01/04/2024, 11:00, María Gómez, No activada, 30652745, Sofía, Tames
+121212, 1212, stey, Activada, 109858663, Juan, Romero
